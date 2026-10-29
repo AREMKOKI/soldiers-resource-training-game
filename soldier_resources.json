@@ -1,0 +1,104 @@
+{
+    "soldier_resources": {
+        "title": "Army Garrison & Soldier Support Resources Directory",
+        "description": "Essential military support programs, garrison services, and command resources for Soldiers and families.",
+        "resources": [
+            {
+                "id": "res_boss",
+                "acronym": "BOSS",
+                "name": "Better Opportunities for Single Soldiers",
+                "category": "Quality of Life & Recreation",
+                "description": "Enhances the quality of life and morale of single Soldiers, increases Soldier involvement in communities, and assists in identifying issues.",
+                "eligibility": "Single Soldiers, Single Parents, and Geographical Single Soldiers."
+            },
+            {
+                "id": "res_mflc",
+                "acronym": "MFLC",
+                "name": "Military and Family Life Counseling",
+                "category": "Behavioral Health & Counseling",
+                "description": "Provides non-medical, short-term, confidential counseling to Soldiers and family members to cope with deployment, stress, and lifestyle changes.",
+                "eligibility": "Active Duty Soldiers, Guard/Reserve, and immediate Family Members."
+            },
+            {
+                "id": "res_umt",
+                "acronym": "UMT",
+                "name": "Unit Ministry Team / Chaplain",
+                "category": "Spiritual Support & Counseling",
+                "description": "Offers confidential religious support, pastoral care, moral advice, and marital/personal counseling.",
+                "eligibility": "100% Confidential for all Soldiers and Family Members."
+            },
+            {
+                "id": "res_aer",
+                "acronym": "AER",
+                "name": "Army Emergency Relief",
+                "category": "Financial Assistance",
+                "description": "Provides interest-free loans, grants, and educational scholarships to relieve financial distress.",
+                "eligibility": "Active Duty, Retirees, and eligible Dependents."
+            },
+            {
+                "id": "res_redcross",
+                "acronym": "RED CROSS",
+                "name": "American Red Cross Service to the Armed Forces",
+                "category": "Emergency Communication & Relief",
+                "description": "Delivers emergency message communications (births, deaths, illness) between service members and their families worldwide 24/7.",
+                "eligibility": "All active duty military members and their immediate families."
+            },
+            {
+                "id": "res_acs",
+                "acronym": "ACS",
+                "name": "Army Community Service",
+                "category": "Family & Community Support",
+                "description": "Offers comprehensive social, financial, deployment, relocation, and family readiness programs.",
+                "eligibility": "Active Duty, Reserve, National Guard, Retirees, and Family Members."
+            },
+            {
+                "id": "res_mfr",
+                "acronym": "MFR",
+                "name": "Military Family Readiness",
+                "category": "Family Readiness",
+                "description": "Connects commanders, Soldiers, and family members with information, support, and garrison assistance programs.",
+                "eligibility": "Soldiers and Family Members assigned to the unit."
+            },
+            {
+                "id": "res_bhr",
+                "acronym": "BHR",
+                "name": "Behavioral Health Readiness / Clinic",
+                "category": "Medical & Mental Health",
+                "description": "Provides specialized clinical mental health treatment, assessment, and resilience services for operational readiness.",
+                "eligibility": "Active Duty Service Members."
+            },
+            {
+                "id": "res_legal",
+                "acronym": "LEGAL",
+                "name": "Staff Judge Advocate (SJA) Legal Assistance",
+                "category": "Legal Services",
+                "description": "Assists with personal legal matters, including wills, powers of attorney, leases, family law, and consumer protection.",
+                "eligibility": "Active Duty, Retirees, and eligible Dependents."
+            },
+            {
+                "id": "res_aec",
+                "acronym": "AEC",
+                "name": "Army Education Center",
+                "category": "Education & Career",
+                "description": "Provides Tuition Assistance (TA), testing center access, degree plan counseling, and ArmyIgnitED support.",
+                "eligibility": "Active Duty, Guard, and Reserve Soldiers."
+            },
+            {
+                "id": "res_sharp",
+                "acronym": "SHARP",
+                "name": "Sexual Harassment/Assault Response and Prevention",
+                "category": "Safety & Victim Advocacy",
+                "description": "Provides 24/7 advocacy, reporting options (Restricted/Unrestricted), medical accompaniment, and support services.",
+                "eligibility": "Soldiers and Adult Military Dependents."
+            },
+            {
+                "id": "res_eo",
+                "acronym": "EO",
+                "name": "Equal Opportunity Program",
+                "category": "Fairness & Command Climate",
+                "description": "Formulates, directs, and sustains a comprehensive effort to maximize human potential and ensure fair treatment based solely on merit, fitness, and capability.",
+                "eligibility": "All Soldiers and Military Personnel."
+            }
+        ]
+    }
+}

@@ -1,0 +1,193 @@
+{
+    "soldier_issues": {
+        "title": "Junior Enlisted Common Issues & Challenges Directory",
+        "description": "Comprehensive catalog of 16 high-frequency personal, professional, operational, and administrative challenges experienced by junior enlisted Soldiers (E-1 to E-4).",
+        "issues": [
+            {
+                "id": "issue_001",
+                "code": "FIN_EMERGENCY",
+                "title": "Soldier faces an unexpected vehicle breakdown and sudden debt, making them unable to cover basic monthly expenses.",
+                "category": "Financial",
+                "description": "Unexpected vehicle repairs, high-interest predatory loans, or sudden travel expenses leaving the Soldier unable to cover basic living expenses.",
+                "recommended_resources": [
+                    "AER",
+                    "ACS",
+                    "UMT"
+                ]
+            },
+            {
+                "id": "issue_002",
+                "code": "RELOC_STRESS",
+                "title": "Soldier is navigating their first PCS move, experiencing high stress with relocation costs, barracks onboarding, and moving household goods.",
+                "category": "Administrative & Relocation",
+                "description": "Navigating first Permanent Change of Station (PCS), barracks onboarding, moving expenses, or setting up household goods.",
+                "recommended_resources": [
+                    "ACS",
+                    "MFR",
+                    "UMT"
+                ]
+            },
+            {
+                "id": "issue_003",
+                "code": "RELATIONSHIP_DISPUTE",
+                "title": "Soldier is experiencing marital strain and communication breakdown due to long-distance deployment rotations.",
+                "category": "Family & Relationships",
+                "description": "Communication breakdown, long-distance strain during rotations, or domestic conflicts impacting home and duty focus.",
+                "recommended_resources": [
+                    "MFLC",
+                    "UMT",
+                    "ACS"
+                ]
+            },
+            {
+                "id": "issue_004",
+                "code": "MENTAL_STRESS_ANXIETY",
+                "title": "Soldier feels overwhelmed by high operational tempo, suffering from severe stress, burnout, and daily anxiety.",
+                "category": "Behavioral Health & Wellness",
+                "description": "High operational tempo, duty stress, adjusting to military culture, or feelings of anxiety and overwhelm.",
+                "recommended_resources": [
+                    "MFLC",
+                    "BHR",
+                    "UMT"
+                ]
+            },
+            {
+                "id": "issue_005",
+                "code": "FAMILY_EMERGENCY",
+                "title": "Soldier receives news of a critical family medical emergency back home and needs urgent emergency leave and travel coordination.",
+                "category": "Family & Emergency",
+                "description": "Severe illness, accident, or passing of an immediate family member requiring urgent cross-country or overseas emergency leave.",
+                "recommended_resources": [
+                    "RED CROSS",
+                    "UMT"
+                ]
+            },
+            {
+                "id": "issue_006",
+                "code": "ISOLATION_SINGLE",
+                "title": "Soldier living in the single barracks feels severe isolation, loneliness, and a drop in overall morale during off-duty hours.",
+                "category": "Quality of Life & Morale",
+                "description": "Feeling isolated, lack of social connection, or boredom after duty hours while living in single Soldier barracks.",
+                "recommended_resources": [
+                    "BOSS",
+                    "UMT"
+                ]
+            },
+            {
+                "id": "issue_007",
+                "code": "SHARP_INCIDENT",
+                "title": "Soldier was involved in or witnessed a sexual harassment or sexual assault incident and requires immediate advocacy and confidential support.",
+                "category": "Safety & Equal Opportunity",
+                "description": "Experiencing or witnessing sexual harassment or assault requiring confidential reporting, advocacy, or medical care.",
+                "recommended_resources": [
+                    "SHARP",
+                    "UMT",
+                    "LEGAL"
+                ]
+            },
+            {
+                "id": "issue_008",
+                "code": "EO_DISCRIMINATION",
+                "title": "Soldier reports unfair treatment and perceived discrimination within the unit that creates an unsafe command climate.",
+                "category": "Safety & Equal Opportunity",
+                "description": "Perceived or actual unfair treatment based on race, color, gender, religion, national origin, or sexual orientation.",
+                "recommended_resources": [
+                    "EO",
+                    "UMT",
+                    "LEGAL"
+                ]
+            },
+            {
+                "id": "issue_009",
+                "code": "LEGAL_DISPUTE",
+                "title": "Soldier is facing a civilian housing lease dispute and needs legal assistance with contract review.",
+                "category": "Legal",
+                "description": "Rental lease disputes under SCRA, divorce/custody paperwork, contract disputes, or traffic violations.",
+                "recommended_resources": [
+                    "LEGAL",
+                     "UMT"
+                ]
+            },
+            {
+                "id": "issue_010",
+                "code": "EDUCATION_PROMOTION",
+                "title": "Soldier wants to pursue college courses and earn civilian credentials to maximize their promotion points.",
+                "category": "Career & Professional Development",
+                "description": "Seeking to start college courses, complete correspondence courses, or earn industry certifications to max promotion points.",
+                "recommended_resources": [
+                    "AEC",
+                     "UMT"
+                ]
+            },
+            {
+                "id": "issue_011",
+                "code": "SPOUSE_EMPLOYMENT",
+                "title": "Soldier's spouse is struggling to find local employment and transfer professional state licenses following a recent PCS.",
+                "category": "Family & Career",
+                "description": "Military spouse struggling to find local employment or transfer professional credentials after a move.",
+                "recommended_resources": [
+                    "ACS",
+                    "MFR",
+                     "UMT"
+                ]
+            },
+            {
+                "id": "issue_012",
+                "code": "DEPRESSION_PTSD",
+                "title": "Soldier is struggling with persistent feelings of depression, trauma symptoms, and behavioral health challenges.",
+                "category": "Behavioral Health & Wellness",
+                "description": "Persistent depression, trauma symptoms, or clinical behavioral health issues impacting readiness and well-being.",
+                "recommended_resources": [
+                    "BHR",
+                    "MFLC",
+                     "UMT"
+                ]
+            },
+            {
+                "id": "issue_013",
+                "code": "SPIRITUAL_EXISTENTIAL",
+                "title": "Soldier is coping with personal grief, moral injury, and a loss of personal sense of purpose after losing a teammate.",
+                "category": "Spiritual Support",
+                "description": "Coping with the loss of a comrade, personal grief, existential questions, or ethical conflicts.",
+                "recommended_resources": [
+                    "UMT"
+                ]
+            },
+            {
+                "id": "issue_014",
+                "code": "OVERINDEBTEDNESS_PAY",
+                "title": "Soldier experiences problems with personal budgeting, accumulated high credit card debt, and pay discrepancies on their LES.",
+                "category": "Financial",
+                "description": "Struggling to build a monthly budget, managing high credit card balances, or resolving LES/military pay discrepancies.",
+                "recommended_resources": [
+                    "AER",
+                     "UMT"
+                ]
+            },
+            {
+                "id": "issue_015",
+                "code": "PARENTING_CHILDCARE",
+                "title": "Soldier is struggling to secure affordable local childcare and manage single-parent duties while on active duty.",
+                "category": "Family Support",
+                "description": "Finding affordable local childcare (CDC), single parenting on duty, or registering children in local schools.",
+                "recommended_resources": [
+                    "ACS",
+                    "MFR",
+                     "UMT"
+                ]
+            },
+            {
+                "id": "issue_016",
+                "code": "TRANSITION_PLANNING",
+                "title": "Soldier is beginning early career planning and exploring credentials, apprenticeships, and transition options for civilian life.",
+                "category": "Career & Professional Development",
+                "description": "Evaluating career path options, ArmyIgnitED credentials, or early planning for civilian transition.",
+                "recommended_resources": [
+                    "AEC",
+                    "ACS",
+                     "UMT"
+                ]
+            }
+        ]
+    }
+}

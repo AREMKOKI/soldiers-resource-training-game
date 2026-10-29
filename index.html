@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garrison Resource Training</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-decorations">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+  </div>
+
+  <div class="app-layout-wrapper">
+    <!-- Main Dashboard Container -->
+    <div id="main-container" class="app-container">
+      <!-- Game Screen (Header text removed to maximize vertical space) -->
+      <section id="game-screen" class="card screen active">
+        <!-- Top HUD (Progress) -->
+        <div class="hud">
+          <div class="hud-box">
+            <span class="hud-label">Scenario Progress</span>
+            <span id="progress-text" class="hud-val">1/16</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+
+        <!-- Main Scenario Card ("Soldier's Issue") -->
+        <div class="scenario-card">
+          <span class="badge">Soldier's Issue</span>
+          <h3 id="issue-title">Descriptive Soldier issue scenario will appear here...</h3>
+        </div>
+
+        <!-- Instructions -->
+        <p class="instruction-text">Select all applicable resources below, then click <strong>Submit Answer</strong>:</p>
+
+        <!-- Resource Grid (Larger boxes) -->
+        <div id="resource-grid" class="resource-grid">
+          <!-- Dynamic resource cards injected by JS -->
+        </div>
+
+        <!-- Action Button -->
+        <div class="action-container">
+          <button id="btn-submit" class="btn btn-action" disabled>Submit Answer</button>
+        </div>
+      </section>
+
+      <!-- Results Screen (End of deck) -->
+      <section id="results-screen" class="card screen">
+        <div class="trophy-icon">🏆</div>
+        <h2>Training Complete!</h2>
+        <p class="results-subtitle">You have successfully reviewed all garrison resource scenarios.</p>
+        <button id="btn-restart" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Restart Training</button>
+      </section>
+    </div>
+
+    <!-- Side Result Panel (Non-blocking side panel) -->
+    <div id="side-panel" class="side-panel">
+      <div class="side-panel-header">
+        <span id="side-icon" class="side-icon">✅</span>
+        <h3 id="side-title">Correct Match!</h3>
+      </div>
+      <div class="side-panel-content">
+        <div class="result-group">
+          <span class="result-label">Your Selection:</span>
+          <p id="side-user-ans" class="result-val">None</p>
+        </div>
+        <div class="result-group">
+          <span class="result-label">Correct Resources:</span>
+          <p id="side-correct-ans" class="result-val">AER, ACS</p>
+        </div>
+      </div>
+      <button id="btn-next" class="btn btn-primary" style="width: 100%;">Next Scenario ➔</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
