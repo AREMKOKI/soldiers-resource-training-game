@@ -42,7 +42,7 @@ body {
 .c1 { width: 350px; height: 350px; background: #8B5CF6; top: -50px; left: -50px; }
 .c2 { width: 400px; height: 400px; background: #06B6D4; bottom: -50px; right: -50px; }
 
-/* Layout Wrapper utilizing full window real estate */
+/* Layout Wrapper */
 .app-layout-wrapper {
   display: flex;
   gap: 20px;
@@ -50,13 +50,11 @@ body {
   max-width: 1400px;
   z-index: 1;
   align-items: stretch;
-  transition: all 0.3s ease;
   position: relative;
 }
 
 .app-container {
   width: 100%;
-  transition: all 0.3s ease;
   flex: 1;
 }
 
@@ -199,7 +197,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Larger resource boxes fitting all 12 cards cleanly */
+/* Resource Grid */
 .resource-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -272,10 +270,15 @@ body {
   padding-top: 6px;
 }
 
+/* Game Screen Container Wrapper for Modal Anchoring */
+#game-screen {
+  position: relative;
+}
+
 /* Centered Modal Feedback Overlay */
 .side-panel {
   display: none; /* Hidden by default */
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -295,14 +298,15 @@ body {
   display: flex !important;
 }
 
-/* Background blur overlay when modal is active */
-body:has(.side-panel.active)::after {
+/* Backdrop blur overlay controlled safely via class */
+#game-screen.has-modal::after {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(3px);
   z-index: 999;
+  border-radius: var(--card-radius);
 }
 
 .side-panel-header {

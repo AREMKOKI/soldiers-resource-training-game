@@ -16,7 +16,7 @@
   <div class="app-layout-wrapper">
     <!-- Main Dashboard Container -->
     <div id="main-container" class="app-container">
-      <!-- Game Screen (Header text removed to maximize vertical space) -->
+      <!-- Game Screen -->
       <section id="game-screen" class="card screen active">
         <!-- Top HUD (Progress) -->
         <div class="hud">
@@ -40,7 +40,7 @@
         <!-- Instructions -->
         <p class="instruction-text">Select all applicable resources below, then click <strong>Submit Answer</strong>:</p>
 
-        <!-- Resource Grid (Larger boxes) -->
+        <!-- Resource Grid -->
         <div id="resource-grid" class="resource-grid">
           <!-- Dynamic resource cards injected by JS -->
         </div>
@@ -48,6 +48,25 @@
         <!-- Action Button -->
         <div class="action-container">
           <button id="btn-submit" class="btn btn-action" disabled>Submit Answer</button>
+        </div>
+
+        <!-- Feedback Modal Container (Displayed centered over resource selection) -->
+        <div id="side-panel" class="side-panel">
+          <div class="side-panel-header">
+            <span id="side-icon" class="side-icon">✅</span>
+            <h3 id="side-title">Correct Match!</h3>
+          </div>
+          <div class="side-panel-content">
+            <div class="result-group">
+              <span class="result-label">Your Selection:</span>
+              <p id="side-user-ans" class="result-val">None</p>
+            </div>
+            <div class="result-group">
+              <span class="result-label">Correct Resources:</span>
+              <p id="side-correct-ans" class="result-val">AER, ACS</p>
+            </div>
+          </div>
+          <button id="btn-next" class="btn btn-primary" style="width: 100%;">Next Scenario ➔</button>
         </div>
       </section>
 
@@ -58,25 +77,6 @@
         <p class="results-subtitle">You have successfully reviewed all garrison resource scenarios.</p>
         <button id="btn-restart" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Restart Training</button>
       </section>
-    </div>
-
-    <!-- Side Result Panel (Non-blocking side panel) -->
-    <div id="side-panel" class="side-panel">
-      <div class="side-panel-header">
-        <span id="side-icon" class="side-icon">✅</span>
-        <h3 id="side-title">Correct Match!</h3>
-      </div>
-      <div class="side-panel-content">
-        <div class="result-group">
-          <span class="result-label">Your Selection:</span>
-          <p id="side-user-ans" class="result-val">None</p>
-        </div>
-        <div class="result-group">
-          <span class="result-label">Correct Resources:</span>
-          <p id="side-correct-ans" class="result-val">AER, ACS</p>
-        </div>
-      </div>
-      <button id="btn-next" class="btn btn-primary" style="width: 100%;">Next Scenario ➔</button>
     </div>
   </div>
 

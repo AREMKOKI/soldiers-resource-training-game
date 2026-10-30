@@ -32,16 +32,29 @@ const progressBar = document.getElementById('progress-bar');
 const issueTitle = document.getElementById('issue-title');
 const resourceGrid = document.getElementById('resource-grid');
 
-// Side Panel Elements
+// Modal / Feedback Panel Elements
+const sidePanel = document.getElementById('side-panel');
 const sideIcon = document.getElementById('side-icon');
 const sideTitle = document.getElementById('side-title');
 const sideUserAns = document.getElementById('side-user-ans');
 const sideCorrectAns = document.getElementById('side-correct-ans');
 
 // Sound Effects via Web Audio API
+let audioCtx = null;
+
+function getAudioContext() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
+
 function playSound(type) {
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = getAudioContext();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.connect(gain);
@@ -61,7 +74,7 @@ function playSound(type) {
       osc.stop(ctx.currentTime + 0.25);
     }
   } catch (e) {
-    // AudioContext blocked or unavailable
+    console.warn('Web Audio API not supported or blocked', e);
   }
 }
 
@@ -89,7 +102,8 @@ async function loadData() {
 function startGame() {
   issues = issues.sort(() => Math.random() - 0.5);
   currentIndex = 0;
-  appLayoutWrapper.classList.remove('panel-open');
+  if (sidePanel) sidePanel.classList.remove('active');
+  if (gameScreen) gameScreen.classList.remove('has-modal');
 
   resultsScreen.classList.remove('active');
   gameScreen.classList.add('active');
@@ -101,7 +115,8 @@ function startGame() {
 function renderQuestion() {
   selectedAcronyms.clear();
   btnSubmit.disabled = true;
-  appLayoutWrapper.classList.remove('panel-open');
+  if (sidePanel) sidePanel.classList.remove('active');
+  if (gameScreen) gameScreen.classList.remove('has-modal');
 
   const currentIssue = issues[currentIndex];
 
@@ -112,17 +127,19 @@ function renderQuestion() {
   // Update Descriptive Scenario Title
   issueTitle.innerText = currentIssue.title;
 
-  // Render Grid Cards with readable descriptions
+  // Render Grid Cards with accessible buttons
   resourceGrid.innerHTML = '';
   resources.forEach(res => {
     const styling = resourceColors[res.acronym] || { bg: "#FFFFFF", text: "#0F172A", border: "#CBD5E1" };
 
-    const btn = document.createElement('div');
+    const btn = document.createElement('button');
+    btn.type = 'button';
     btn.className = 'resource-btn';
     btn.dataset.acronym = res.acronym;
     btn.style.backgroundColor = styling.bg;
     btn.style.borderColor = styling.border;
     btn.style.color = styling.text;
+    btn.setAttribute('aria-pressed', 'false');
 
     btn.innerHTML = `
       <div>
@@ -142,23 +159,24 @@ function toggleResourceSelect(element, acronym) {
   if (selectedAcronyms.has(acronym)) {
     selectedAcronyms.delete(acronym);
     element.classList.remove('selected');
+    element.setAttribute('aria-pressed', 'false');
   } else {
     selectedAcronyms.add(acronym);
     element.classList.add('selected');
+    element.setAttribute('aria-pressed', 'true');
   }
 
   btnSubmit.disabled = selectedAcronyms.size === 0;
 }
 
-// Submit Answer and Slide Open Side Panel
+// Submit Answer and Open Centered Modal Overlay
 function handleSubmit() {
   const currentIssue = issues[currentIndex];
-  const correctResources = currentIssue.recommended_resources;
+  const correctSet = new Set(currentIssue.recommended_resources);
 
-  const selectedArr = Array.from(selectedAcronyms).sort();
-  const correctArr = [...correctResources].sort();
-
-  const isCorrect = JSON.stringify(selectedArr) === JSON.stringify(correctArr);
+  const isCorrect = 
+    selectedAcronyms.size === correctSet.size && 
+    Array.from(selectedAcronyms).every(acronym => correctSet.has(acronym));
 
   if (isCorrect) {
     playSound('correct');
@@ -172,16 +190,21 @@ function handleSubmit() {
     sideTitle.style.color = '#EF4444';
   }
 
+  const selectedArr = Array.from(selectedAcronyms).sort();
+  const correctArr = Array.from(correctSet).sort();
+
   sideUserAns.innerText = selectedArr.length ? selectedArr.join(', ') : 'None';
   sideCorrectAns.innerText = correctArr.join(', ');
 
-  // Open side panel
-  appLayoutWrapper.classList.add('panel-open');
+  // Activate modal and screen overlay wrapper class explicitly
+  if (sidePanel) sidePanel.classList.add('active');
+  if (gameScreen) gameScreen.classList.add('has-modal');
 }
 
-// Advance to next question or results from side panel
+// Advance to next question or results from modal
 function handleNext() {
-  appLayoutWrapper.classList.remove('panel-open');
+  if (sidePanel) sidePanel.classList.remove('active');
+  if (gameScreen) gameScreen.classList.remove('has-modal');
   currentIndex++;
 
   if (currentIndex < issues.length) {
