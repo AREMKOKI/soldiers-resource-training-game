@@ -103,7 +103,6 @@ function startGame() {
   issues = issues.sort(() => Math.random() - 0.5);
   currentIndex = 0;
   if (sidePanel) sidePanel.classList.remove('active');
-  if (gameScreen) gameScreen.classList.remove('has-modal');
 
   resultsScreen.classList.remove('active');
   gameScreen.classList.add('active');
@@ -116,7 +115,6 @@ function renderQuestion() {
   selectedAcronyms.clear();
   btnSubmit.disabled = true;
   if (sidePanel) sidePanel.classList.remove('active');
-  if (gameScreen) gameScreen.classList.remove('has-modal');
 
   const currentIssue = issues[currentIndex];
 
@@ -169,7 +167,7 @@ function toggleResourceSelect(element, acronym) {
   btnSubmit.disabled = selectedAcronyms.size === 0;
 }
 
-// Submit Answer and Open Centered Modal Overlay
+// Submit Answer and Open Top-Right Modal Overlay
 function handleSubmit() {
   const currentIssue = issues[currentIndex];
   const correctSet = new Set(currentIssue.recommended_resources);
@@ -196,15 +194,13 @@ function handleSubmit() {
   sideUserAns.innerText = selectedArr.length ? selectedArr.join(', ') : 'None';
   sideCorrectAns.innerText = correctArr.join(', ');
 
-  // Activate modal and screen overlay wrapper class explicitly
+  // Activate modal in top-right corner unblurred
   if (sidePanel) sidePanel.classList.add('active');
-  if (gameScreen) gameScreen.classList.add('has-modal');
 }
 
 // Advance to next question or results from modal
 function handleNext() {
   if (sidePanel) sidePanel.classList.remove('active');
-  if (gameScreen) gameScreen.classList.remove('has-modal');
   currentIndex++;
 
   if (currentIndex < issues.length) {

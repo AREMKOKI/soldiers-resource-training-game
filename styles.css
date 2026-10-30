@@ -275,73 +275,66 @@ body {
   position: relative;
 }
 
-/* Centered Modal Feedback Overlay */
+/* Feedback Box positioned cleanly in the top-right corner */
 .side-panel {
   display: none; /* Hidden by default */
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 360px;
+  top: 15px;
+  right: 15px;
+  width: 320px;
   background: white;
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   z-index: 1000;
   flex-direction: column;
   justify-content: space-between;
+  animation: fadeInModal 0.25s ease-in-out;
 }
 
-/* When active, show it centered */
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* When active, show it */
 .side-panel.active {
   display: flex !important;
-}
-
-/* Backdrop blur overlay controlled safely via class */
-#game-screen.has-modal::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(3px);
-  z-index: 999;
-  border-radius: var(--card-radius);
 }
 
 .side-panel-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .side-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .side-panel-header h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #0F172A;
 }
 
 .side-panel-content {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .result-group {
   background: #F8FAFC;
-  padding: 10px 12px;
-  border-radius: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
   border: 1px solid #E2E8F0;
 }
 
 .result-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -349,7 +342,7 @@ body {
 }
 
 .result-val {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #0F172A;
   font-weight: 700;
 }
