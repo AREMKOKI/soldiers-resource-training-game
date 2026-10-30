@@ -89,7 +89,7 @@ async function loadData() {
     const issData = await issResp.json();
 
     resources = resData.soldier_resources.resources;
-    issues = issData.soldier_issues.issues;
+    issues = issData.soldier_issues.issues; // Kept in original sequential order (not randomized)
 
     startGame();
   } catch (err) {
@@ -100,9 +100,13 @@ async function loadData() {
 
 // Start Game directly
 function startGame() {
-  issues = issues.sort(() => Math.random() - 0.5);
   currentIndex = 0;
-  if (sidePanel) sidePanel.classList.remove('active');
+  if (sidePanel) {
+    sidePanel.classList.remove('active');
+    sidePanel.style.top = '15px';
+    sidePanel.style.right = '15px';
+    sidePanel.style.left = 'auto';
+  }
 
   resultsScreen.classList.remove('active');
   gameScreen.classList.add('active');
@@ -114,7 +118,12 @@ function startGame() {
 function renderQuestion() {
   selectedAcronyms.clear();
   btnSubmit.disabled = true;
-  if (sidePanel) sidePanel.classList.remove('active');
+  if (sidePanel) {
+    sidePanel.classList.remove('active');
+    sidePanel.style.top = '15px';
+    sidePanel.style.right = '15px';
+    sidePanel.style.left = 'auto';
+  }
 
   const currentIssue = issues[currentIndex];
 
@@ -194,8 +203,13 @@ function handleSubmit() {
   sideUserAns.innerText = selectedArr.length ? selectedArr.join(', ') : 'None';
   sideCorrectAns.innerText = correctArr.join(', ');
 
-  // Activate modal in top-right corner unblurred
-  if (sidePanel) sidePanel.classList.add('active');
+  // Reset pop-up position to top-right on open and activate
+  if (sidePanel) {
+    sidePanel.style.top = '15px';
+    sidePanel.style.right = '15px';
+    sidePanel.style.left = 'auto';
+    sidePanel.classList.add('active');
+  }
 }
 
 // Advance to next question or results from modal
@@ -210,6 +224,43 @@ function handleNext() {
     resultsScreen.classList.add('active');
   }
 }
+
+// Draggable Pop-up Logic
+let isDragging = false;
+let startX, startY, initialLeft, initialTop;
+
+sidePanel.addEventListener('mousedown', (e) => {
+  if (e.target.tagName === 'BUTTON') return;
+
+  isDragging = true;
+  const rect = sidePanel.getBoundingClientRect();
+  const parentRect = gameScreen.getBoundingClientRect();
+
+  if (sidePanel.style.right !== 'auto') {
+    sidePanel.style.left = (rect.left - parentRect.left) + 'px';
+    sidePanel.style.top = (rect.top - parentRect.top) + 'px';
+    sidePanel.style.right = 'auto';
+  }
+
+  startX = e.clientX;
+  startY = e.clientY;
+  initialLeft = parseFloat(sidePanel.style.left) || (rect.left - parentRect.left);
+  initialTop = parseFloat(sidePanel.style.top) || (rect.top - parentRect.top);
+
+  e.preventDefault();
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const dx = e.clientX - startX;
+  const dy = e.clientY - startY;
+  sidePanel.style.left = (initialLeft + dx) + 'px';
+  sidePanel.style.top = (initialTop + dy) + 'px';
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
 
 // Event Listeners
 btnSubmit.addEventListener('click', handleSubmit);

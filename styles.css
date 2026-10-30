@@ -275,26 +275,26 @@ body {
   position: relative;
 }
 
-/* Feedback Box positioned cleanly in the top-right corner */
+/* Feedback Box: Smaller & Draggable */
 .side-panel {
   display: none; /* Hidden by default */
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 320px;
+  width: 250px;
   background: white;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   flex-direction: column;
   justify-content: space-between;
-  animation: fadeInModal 0.25s ease-in-out;
+  cursor: grab;
+  user-select: none;
 }
 
-@keyframes fadeInModal {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+.side-panel:active {
+  cursor: grabbing;
 }
 
 /* When active, show it */
@@ -305,44 +305,44 @@ body {
 .side-panel-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .side-icon {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
 .side-panel-header h3 {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #0F172A;
 }
 
 .side-panel-content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .result-group {
   background: #F8FAFC;
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
   border: 1px solid #E2E8F0;
 }
 
 .result-label {
   display: block;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .result-val {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #0F172A;
   font-weight: 700;
 }
