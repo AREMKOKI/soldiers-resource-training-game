@@ -6,56 +6,6 @@
   <title>Garrison Resource Training</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    /* Cover Screen Specific Styles */
-    #cover-screen {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-      border-top: 4px solid #10b981;
-    }
-    #cover-screen h1 {
-      font-size: 2.2rem;
-      color: #f3f4f6;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    #cover-screen .cover-subtitle {
-      font-size: 1rem;
-      color: #10b981;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 25px;
-      text-transform: uppercase;
-    }
-    #cover-screen .cover-divider {
-      width: 100%;
-      height: 1px;
-      background-color: #374151;
-      margin: 20px 0;
-    }
-    #cover-screen .about-section {
-      text-align: left;
-      margin-bottom: 30px;
-      width: 100%;
-    }
-    #cover-screen .about-section h3 {
-      font-size: 1.1rem;
-      color: #9ca3af;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-    #cover-screen .about-section p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #d1d5db;
-    }
-  </style>
 </head>
 <body>
   <div class="background-decorations">
@@ -67,33 +17,16 @@
     <!-- Main Dashboard Container -->
     <div id="main-container" class="app-container">
       
-      <!-- Introduction Cover Screen (Active by default) -->
-      <section id="cover-screen" class="card screen active">
-        <h1>Garrison Resources for Soldiers</h1>
-        <div class="cover-subtitle">Training Game to better utilize Resources &bull; Train the Force &bull; Win the War</div>
-        
-        <div class="cover-divider"></div>
-
-        <div class="about-section">
-            <h3>Mission Briefing</h3>
-            <p>
-                <strong>Description:</strong> In garrison, soldiers often take their problems (financial stress, family issues, mental fatigue, spiritual crisis) to the UMT because of absolute confidentiality.
-The UMT acts as a diagnostic filter. To successfully resolve a soldier's issue and restore their "Readiness Point," the UMT must route or collaborate with other garrison assets. GAME INSTRUCTIONS: Read Soldier's issue and pick one or two or three resources available for that particular issue including your UMT.
-            </p>
-        </div>
-
-        <div class="cover-divider"></div>
-
-        <button id="btn-start-game" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">Deploy to Command</button>
-      </section>
-
-      <!-- Game Screen (Hidden initially) -->
-      <section id="game-screen" class="card screen">
+      <!-- Game Screen (Active by default) -->
+      <section id="game-screen" class="card screen active">
         <!-- Top HUD (Progress) -->
         <div class="hud">
           <div class="hud-box">
             <span class="hud-label">Scenario Progress</span>
             <span id="progress-text" class="hud-val">1/16</span>
+          </div>
+          <div class="hud-box" style="text-align: right;">
+            <a href="cover.html" style="font-size: 0.85rem; color: #10b981; text-decoration: none;">&larr; Mission Briefing</a>
           </div>
         </div>
 
@@ -151,13 +84,6 @@ The UMT acts as a diagnostic filter. To successfully resolve a soldier's issue a
     </div>
   </div>
 
-  <script>
-    // Simple transition script for the cover page
-    document.getElementById('btn-start-game').addEventListener('click', function() {
-      document.getElementById('cover-screen').classList.remove('active');
-      document.getElementById('game-screen').classList.add('active');
-    });
-  </script>
   <script src="app.js"></script>
 </body>
 </html>
